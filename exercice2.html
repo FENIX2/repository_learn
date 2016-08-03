@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" " href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/tuto.css">
+		<style type="text/css">
+			.col-lg-8 { line-height: 200px; }
+    		.col-lg-12 { line-height: 80px; }
+    		.col-md-8, .col-sm-10 { line-height: 200px; }
+    		.col-md-12 { line-height: 80px; }
+
+		</style>
+</head>
+	<body>
+		<div class="container">
+			<header class="row">
+	    		<div class="col-lg-12">Entete</div>
+    		</header>
+
+    		<div class="row">
+    			<div class="col-lg-2">
+    				<div class="row">
+    					<aside class="col-lg-12">Aside1</aside>
+    					<aside class="col-lg-12">Aside2</aside>
+					</div>
+    			</div>
+    			<section class="col-lg-8">Section</section>
+    			
+    			<div class="col-lg-2">
+    				<div class="row">
+    					<aside class="col-lg-12">Aside3</aside>
+    					<aside class="col-lg-12">Aside4</aside>
+					</div>
+    			</div>	
+    		</div>
+    		<footer class="row">
+    			<div class="col-lg-12">Pied de page</div>
+    		</footer>
+    		
+    		</div><br/>
+Comme j'ai mis des classes col-lg-*, tout va s'empiler sous 1200 pixels
+
+		<div class="container">
+		    <header class="row">
+        		<div class="col-md-12">Entete</div>
+      		</header>
+
+    	<div class="row">
+	        <div class="col-sm-2">
+        		<div class="row">
+            		<aside class="col-md-12">Aside 1</aside>
+            		<aside class="col-md-12">Aside 2</aside>
+          		</div>
+        	</div>
+
+        <section class="col-sm-10 col-md-8">Section</section>
+<!--J'ai remplacé les classes col-lg-* par des classes col-md-* pour avoir un comportement de base pour écrans moyens et grands. 
+J'ai ensuite introduit des classes col-sm-* pour avoir le comportement désiré sur tablette-->
+
+        <div class="clearfix visible-sm-block"></div>
+<!--En revanche, la ligne ci-dessus mérite quelques commentaires particuliers. 
+Pour le média tablette, vous avez des éléments flottants qui se succèdent avec 
+des comportements qui ne sont pas forcément ceux que l'on souhaite
+
+Use a single or combination of the available classes for toggling content across viewport breakpoints.
+
+
+
+
+					Extra small devices 	Small devices 		Medium devices 		Large devices 
+					Tablets (≥768px)		Phones (<768px)		Desktops (≥992px)	Desktops (≥1200px)
+
+ .visible-xs-*		Visible 				Hidden 				Hidden 				Hidden 
+
+ .visible-sm-*		Hidden 					Visible 			Hidden 				Hidden 
+
+.visible-md-*		Hidden 					Hidden 				Visible 			Hidden 
+ 
+.visible-lg-*		Hidden 					Hidden 				Hidden 				Visible 
+
+ .hidden-xs			Hidden 					Visible 			Visible 			Visible 
+
+.hidden-sm			Visible 				Hidden 				Visible 			Visible 
+
+.hidden-md			Visible 				Visible 			Hidden 				Visible 
+
+.hidden-lg			Visible 				Visible 			Visible 			Hidden 
+-->       
+ 
+        <div class="col-md-2">
+          <div class="row">
+            <aside class="col-md-12">
+              Aside 3
+            </aside>
+            <aside class="col-md-12">
+              Aside 4
+            </aside>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="row">
+        <div class="col-md-12">
+          Pied de page
+        </div>
+      </footer>
+
+    </div><br/>
+Nous avons déjà utilisé une de ces classes. Continuons à en utiliser pour poursuivre notre exercice en supprimant 2 asides pour les smartphones 
+<!--Il suffit de changer une ligne, la ligne 92 (ligne 129 ci-dessous):-->
+<div class="container">
+    <header class="row">
+        <div class="col-md-12">Entete</div>
+    </header>
+
+    <div class="row">
+        <div class="col-sm-2">
+        	<div class="row">
+            	<aside class="col-md-12">Aside1</aside>
+            	<aside class="col-md-12">Aside2</aside>
+       		</div>
+        </div>
+
+        <section class="col-sm-10 col-md-8">Section</section>
+	        <div class="clearfix visible-sm-block"></div>
+	            <div class="hidden-xs col-md-2">
+        			<div class="row">
+        			    <aside class="col-md-12">Aside3</aside>
+            			<aside class="col-md-12">Aside4</aside>
+          			</div>
+        		</div>
+		    </div>
+
+      <footer class="row">
+        <div class="col-md-12">Pied de page</div>
+      </footer><br/>
+
+
+Voyons maintenant un autre cas. Je veux obtenir le résultat visible à la figure suivante.
+<!-- Un peu de style pour la visualisation -->
+	<style type="text/css">
+    	.col-lg-2 { line-height: 100px; }
+    	.col-lg-5 { line-height: 200px; }
+    	.col-lg-12 { line-height: 80px; }
+	</style>
+
+<div class="container">
+    <header class="row">
+        <div class="col-md-12">Entete</div>
+    </header>
+
+
+    <div class="row">
+    	<nav class="col-lg-2">Navigation</nav>
+    	<section class="col-lg-5">Section1</section>
+    	<section class="col-lg-5">Section2</section>
+    </div>
+
+	<footer class="row">
+        <div class="col-md-12">Pied de page</div>
+    </footer>
+</div><br/>
+Maintenant je me dis que mon application serait bien aussi sur écran moyen.<br/>
+Si je ne fais rien, j'obtiens le résultat visible à la figure ci-dessus en reduisant la fenêtre.<br/><br/>
+Ça ne me plaît pas trop, j'aimerais que les 2 sections restent accolées, comme à la figure suivante.
+
+<!-- Un peu de style pour la visualisation -->
+	<style type="text/css">
+    	.col-lg-2 { line-height: 100px; }
+    	.col-lg-5 { line-height: 200px; }
+    	.col-lg-12 { line-height: 80px; }
+	</style>
+
+<div class="container">
+	<header class="row">
+        <div class="col-md-12">Entete</div>
+    </header>
+
+    <div class="row">
+    	<nav class="col-lg-2 col-md-12">Navigation</nav>
+    	<section class="col-lg-5 col-md-6">Section1</section>
+    	<section class="col-lg-5 col-md-6">Section2</section>
+    </div>
+
+	<footer class="row">
+        <div class="col-md-12">Pied de page</div>
+    </footer>
+</div><br/>
+Après réflexion, je me dis que mon application irait bien aussi sur tablette,<br/>
+l'empilement des éléments me convient, mais j'aimerais avoir une en-tête différente.<br/> 
+Après une nouvelle réflexion, j'en veux aussi une différente sur smartphone.<br/>
+Avec les classes « responsives » vues précédemment, c'est facile à réaliser :
+<!-- Un peu de style pour la visualisation -->
+	<style type="text/css">
+    	.col-lg-2 { line-height: 100px; }
+    	.col-lg-5 { line-height: 200px; }
+    	.col-lg-12 { line-height: 80px; }
+	</style>
+<div class="container">  
+	<header class="row">
+    	<div class="visible-lg col-lg-12">Entete large</div>
+    	<div class="visible-md col-md-12">Entete moyenne</div>
+    	<div class="visible-sm col-sm-12">Entete tablette</div>
+    	<div class="visible-xs col-xs-12">Entete smartphone</div>
+	</header>
+
+	
+    	<div class="row">
+        	<nav class="col-md-12 col-lg-2">Navigation</nav>
+        	<section class="col-md-6 col-lg-5">Section1</section>
+        	<section class="col-md-6 col-lg-5">Section2</section>
+    	</div>
+
+	<footer class="row">
+    	<div class="col-lg-12">Pied de page</div>
+	</footer>  
+</div>
+
+
+
+	</body>
+</html>
